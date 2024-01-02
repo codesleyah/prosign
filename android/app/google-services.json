@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "551913295878",
+    "project_id": "prosignal-97cb6",
+    "storage_bucket": "prosignal-97cb6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551913295878:android:f903c51b2836c42c567387",
+        "android_client_info": {
+          "package_name": "com.example.prosignal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJOhs5VeSJQ-6q2CSShkYaX9_OP_dBtKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

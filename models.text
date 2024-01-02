@@ -1,0 +1,24 @@
+user {
+    email: email,
+    password: password,
+    uid: string,
+    subscribedchanels: []
+}
+
+channel {
+    id: string,
+    signalId: string,
+    owner: stringo(owner_id),
+    title: string,
+    description: string,
+    banner: image
+}
+
+signal {
+    id: string,
+    channelid: string,
+    sendat: timestamp,
+    buysell: string,
+    tp: string,
+    sl: string
+}
