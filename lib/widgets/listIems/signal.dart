@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 
 class Signal extends StatelessWidget {
-  const Signal({super.key});
+  const Signal(
+      {super.key,
+      required this.asset,
+      required this.tp,
+      required this.sl,
+      required this.signal,
+      required this.datetime});
+
+  final String asset;
+  final String tp;
+  final String sl;
+  final String signal;
+  final String datetime;
 
   @override
   Widget build(BuildContext context) {
@@ -14,23 +26,25 @@ class Signal extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Icon(Icons.trending_down),
+            CircleAvatar(
+              backgroundColor: signal == "sell" ? Colors.red : Colors.green,
+              child: Icon(
+                  signal == "sell" ? Icons.trending_down : Icons.trending_up),
             ),
             const SizedBox(
               width: 10,
             ),
-            const Expanded(
+            Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Boom 500",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    asset,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w500),
                   ),
-                  Text("TP: 30485 SL: 89087"),
+                  Text("TP: $tp SL: $sl"),
                 ],
               ),
             ),
@@ -38,18 +52,22 @@ class Signal extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      border: Border.all(width: 1),
-                      borderRadius: BorderRadius.circular(5)),
+                    border: Border.all(
+                      width: 1,
+                      color: signal == "sell" ? Colors.red : Colors.green,
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
                   padding: const EdgeInsets.only(
                       top: 2, bottom: 2, left: 10, right: 10),
-                  child: const Text("SELL"),
+                  child: Text(signal),
                 ),
                 const SizedBox(
                   height: 2,
                 ),
-                const Text(
-                  "21 Jan 0900",
-                  style: TextStyle(fontSize: 9),
+                Text(
+                  datetime,
+                  style: const TextStyle(fontSize: 9),
                 ),
               ],
             )

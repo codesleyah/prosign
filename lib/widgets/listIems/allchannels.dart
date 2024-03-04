@@ -2,30 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:prosignal/pages/channels/channelinfo.dart';
 
 class AllChannels extends StatelessWidget {
-  const AllChannels({super.key});
+  const AllChannels(
+      {super.key,
+      required this.channelname,
+      required this.adminusername,
+      required this.channelicon,
+      required this.channelid});
+  final String channelname;
+  final String adminusername;
+  final String channelicon;
+  final String channelid;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const ChannelInfo();
+          return ChannelInfo(
+            channelid: channelicon,
+          );
         }));
       },
       child: Container(
         padding: const EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-        child: const Row(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
               backgroundColor: Colors.white,
-              child: Text(
-                "PS",
-                style: TextStyle(fontWeight: FontWeight.w500),
-              ),
+              child: Image.asset(channelicon),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Expanded(
@@ -34,10 +42,11 @@ class AllChannels extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "ProSignal",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    channelname,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w500),
                   ),
-                  Text("@elvinkako17")
+                  Text(adminusername)
                 ],
               ),
             )
